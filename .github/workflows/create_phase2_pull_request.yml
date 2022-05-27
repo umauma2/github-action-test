@@ -1,0 +1,24 @@
+# committed by lycle-g-asset-deliver
+
+name: create phase2 pull_request
+on:
+  pull_request:
+    branches:
+      - staging
+    types: [closed]
+
+jobs:
+  create-phase2-pull-request:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "phase2-staging"
+          source_branch: "staging"
+          pr_title: "Release ${{ github.ref }} into phase2-staging"
+          pr_body: ":crown: *An automated PR*"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
