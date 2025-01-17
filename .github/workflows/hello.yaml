@@ -17,8 +17,8 @@ jobs:
       - name: echo env
         run: echo $CURRENT_HOUR
       - name: over 13
-        if: ${{ fromJson('{"hour": ' + env.CURRENT_HOUR + '}').hour > 13 }}
+        if: ${{ ((env.CURRENT_HOUR)) > 13 }}
         run: echo "over 13"
       - name: under 11
-        if: ${{ fromJson('{"hour": ' + env.CURRENT_HOUR + '}').hour < 11 }}
+        if: ${{ ((env.CURRENT_HOUR)) < 11 }}
         run: echo "under 11"
