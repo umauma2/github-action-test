@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: hello worlkd
-        - run: echo "Hello, World!"
+        run: echo "Hello, World!"
       - name: check hour
         env:
           TZ: 'Asia/Tokyo' # タイムゾーン指定
