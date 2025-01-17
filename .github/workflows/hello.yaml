@@ -14,8 +14,8 @@ jobs:
         run: echo "CURRENT_HOUR=$(date +'%H')" >> $GITHUB_ENV
         run: echo ${{ env.CURRENT_HOUR }}
       - name over 13
-        if: env.CURRENT_HOUR > 13
+        if: ${{ env.CURRENT_HOUR > 13 }}
         run: echo "over 13"
       - name under 11
-        if: env.CURRENT_HOUR < 11
+        if: ${{ env.CURRENT_HOUR < 11 }}
         run: echo "under 11"
