@@ -13,7 +13,8 @@ jobs:
           TZ: 'Asia/Tokyo' # タイムゾーン指定
         run: | 
           echo "CURRENT_HOUR=$(date +'%H')" >> $GITHUB_ENV
-          echo ${{ env.CURRENT_HOUR }}
+      - name: echo env
+        run: echo $CURRENT_HOUR
       - name: over 13
         if: ${{ env.CURRENT_HOUR > 13 }}
         run: echo "over 13"
